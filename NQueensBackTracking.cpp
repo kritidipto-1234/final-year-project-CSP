@@ -59,6 +59,7 @@ void undo(int row)
     placeQueen(row-1);
 }
 
+int coun=0;
 void placeQueen(int row=0)
 {
     if (row==-1) return; //end search
@@ -72,11 +73,13 @@ void placeQueen(int row=0)
 
     if (row==n-1)  //success
     {
-        // undo(row);
+        coun++;
         printvv(board);
-        return;
+        undo(row);
+        // return;
     }
-    placeQueen(row+1);
+    else if (row<n-1) //not quite there yet
+        placeQueen(row+1);
 }
 
 int main()
@@ -86,4 +89,5 @@ int main()
     for (int i=1;i<=n;i++)
         board.push_back(sample);
     placeQueen();
+    cout<<"No of solutions : "<<coun<<endl;
 }

@@ -110,8 +110,7 @@ void generateHeuristicBoard()
 
 node findSuccessor()//finds a relative with lesser conflicts/better heruistic
 {
-    int minRow=-1,minColumn=-1;
-    int current_heuristic=heuristicBoard[0][state[0]];
+    int minRow=-1,minColumn=-1;    int current_heuristic=heuristicBoard[0][state[0]];
     for (int r=0;r<n;r++)
     {
         for (int c=0;c<n;c++)
@@ -148,17 +147,17 @@ void hillClimb()
     while (true)
     {
         generateHeuristicBoard();
-        node ans=findSuccessor();
-        if (ans.row==-1 && ans.column==-1)//we found a local minima
+        node successor=findSuccessor();
+        if (successor.row==-1 && successor.column==-1)//we found a local minima
         {
             printCurrentBoard();
             return;
             // initializeBoardRandomly();
             // continue;
-            // ans.row=randomLessThanN(n);
-            // ans.column=randomLessThanN(n);
+            // successor.row=randomLessThanN(n);
+            // successor.column=randomLessThanN(n);
         }
-        moveBoardTo(ans.row,ans.column);
+        moveBoardTo(successor.row,successor.column);
     }
     printCurrentBoard();
 }

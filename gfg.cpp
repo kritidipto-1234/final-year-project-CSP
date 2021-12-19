@@ -2,7 +2,7 @@
 
 using namespace std;
  
-#define N 20
+#define N 40
 
 void configureRandomly(int board[][N],int* state)//configures the 2D array "board" and array "state" randomly to provide a starting point for the algorithm.
 {
